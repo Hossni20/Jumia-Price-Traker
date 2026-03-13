@@ -11,14 +11,14 @@ A Python script that tracks product prices on Jumia and automatically generates 
 - **Smart Data Extraction:** Isolates raw numbers from currencies (e.g., converts "12,000.00 Dhs" to pure 12000.00).
 - **Matrix Dashboard:** Converts a messy chronological log into a clean, easy-to-read pivot table where dates grow horizontally.
 
-## 🛠️ Prerequisites & Requirements
+## Prerequisites & Requirements
 
 Before you start, you must have the following installed on your machine:
 
 - **Python 3.7 or higher** 2. **Google Chrome** (The standard desktop browser)
 - **Python Libraries:** pandas and playwright
 
-## ⚙️ Installation
+## Installation
 
 **1\. Clone or download this repository** to your local machine.
 
