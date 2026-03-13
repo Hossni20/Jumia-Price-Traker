@@ -2,9 +2,9 @@
 
 A Python script that tracks product prices on Jumia and automatically generates a clean, side-by-side comparison matrix in Excel/CSV format.
 
-**Why this approach?** Jumia uses strict anti-bot protections (like Cloudflare) that instantly block standard headless scrapers. This script bypasses those protections by connecting to a live, human-launched Google Chrome window via the Chrome DevTools Protocol (CDP). By acting as a "co-pilot" to your real browser, it avoids detection.
+**Why this approach?**<br> Jumia uses strict anti-bot protections (like Cloudflare) that instantly block standard headless scrapers. This script bypasses those protections by connecting to a live, human-launched Google Chrome window via the Chrome DevTools Protocol (CDP). By acting as a "co-pilot" to your real browser, it avoids detection.
 
-## ✨ Features
+## Features
 
 - **Cloudflare Bypass:** Uses your actual Chrome browser to avoid bot detection.
 - **Auto-Cleaning Data:** Automatically removes commas from product names so they don't break CSV formatting.
@@ -28,7 +28,7 @@ Open your terminal or command prompt in the project folder and run:
 
   pip install pandas playwright
 
-## 🚀 Step-by-Step Usage Guide
+## Step-by-Step Usage Guide
 
 ## Step 1: Set up your Target Links
 
@@ -76,7 +76,7 @@ python jumia_tracker.py
 
 The script will connect to your open Chrome window, loop through your urls.txt, check every price, and save the data.
 
-## 📂 Output Files
+## Output Files
 
 Every time you run the script, it manages two files for you:
 
@@ -94,9 +94,22 @@ Every time you run the script, it manages two files for you:
 | iPhone 13. Red     | 8500.0               | **8200.0**           | 8200.0               |
 | ---                | ---                  | ---                  | ---                  |
 
-## ⚠️ Troubleshooting
+## Troubleshooting
 
 Error: "COULD NOT CONNECT! Make sure Chrome is open..."
 
 Fix: You didn't complete Step 2 correctly.
 Make sure absolutely all Chrome windows are closed (check your task manager if needed) before running the terminal command to open the remote-debugging Chrome.
+
+## "One-Click" Code
+
+Right-click your run_tracker.bat file and select Edit (or open it in Notepad). Replace whatever is inside with this code:
+
+@echo off\
+:: Change this path to wherever your chrome.exe is\
+start "" "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222\
+timeout /t 5 /nobreak > NUL\
+:: Change this path to wherever your folder is\
+cd "C:\Users\YourName\Desktop\JumiaFolder"\
+python jumia_tracker.py\
+pause
