@@ -1,4 +1,4 @@
-# Jumia Price Tracker 🛒📉
+# Jumia Price Tracker
 
 A Python script that tracks product prices on Jumia and automatically generates a clean, side-by-side comparison matrix in Excel/CSV format.
 
